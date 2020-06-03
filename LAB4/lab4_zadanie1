@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+#Pobieramy nazwę folderu od użytkownika
+read -p "Podaj nazwę folderu, który zostanie stworzony: " folder
+files=-1;
+
+#Sprawdzamy, czy liczba podana przez użytkownika jest większa od zera
+while [ $files -le 0 ] ; do
+	read -p "Podaj liczbę większą od zero: " files
+done
+	
+#Tworzymy nowy folder o nazwie podanej przez uzytkownika
+mkdir $folder
+
+#Tworzymy ilość plików odpowiadających liczbie podanej przez użytkownika
+for (( i=1; i <= files; i++)) ; do
+	touch ./$folder/$i.txt
+done

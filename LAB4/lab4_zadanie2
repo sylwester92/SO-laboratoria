@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#Wprowadzamy możliwość czytania parametrów z linii komend i definiujemy odpowiednie parametry
+while getopts c:f: option
+do
+	case "${option}"
+	in
+		f) file_name=${OPTARG};;
+		c) user_char=${OPTARG};;
+	esac
+done
+
+#Sprawdzanie, czy plik istnieje
+if [ -f "$file_name" ] ; then
+
+#Funkcja zliczająca ilość wystapień danego znaku
+	count="$(grep -o "$user_char" $file_name | wc -l)"
+
+#Wypisanie wystapień podanego znaku
+	echo "Znak $user_char występuje $count razy w pliku $file_name"
+	
+#Wyświetlenie komunikatu, jeżeli plik nie istnieje
+
+elif  [ ! -f "$file_name" ] ; then
+	echo "Plik o podanej nazwie nie istnieje!"
+fi
+

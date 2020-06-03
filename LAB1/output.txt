@@ -1,0 +1,1 @@
+Counter of 'x' letter in file 'resources/input.txt' is: 55
